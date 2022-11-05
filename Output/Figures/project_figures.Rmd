@@ -4,14 +4,11 @@ date: "`r Sys.Date()`"
 output: 
   html_document:
           keep_md: true
-          code_folding: hide
-          toc: true
-          toc_float: true
 ---
 
-```{r data summary, include=T, message = F, warning = F}
+```{r setup, include=T, message = F, warning = F, echo = F}
 knitr::opts_chunk$set(
-  echo = T,
+  echo = F,
   fig.align = "center",
   fig.path = "markdown/",
   message = FALSE,
