@@ -1,0 +1,232 @@
+Starvation reduces thermal limits of the widespread copepod *Acartia
+tonsa*
+================
+
+# Introduction
+
+The acquisition of nutrition is a fundamental challenge for organisms.
+While environmental conditions are often considered to impact the
+ability to find, capture, and ingest food, nutrition also affects how
+environmental conditions impact organisms. In a changing climate, these
+feedbacks between feeding and sensitivity to environmental conditions
+are crucial to consider. \[Summary of climate change, temperature, and
+food availability in the ocean; Are copepods currently or predicted to
+be exposed to food limitation?\].
+
+\[Summary of starvation effects on thermal limits literature\]. It is
+vital to understand how copepod thermal limits respond to changes in
+food availability in order to better model population dynamics in a
+changing climate.
+
+Copepods are the some of the most abundant animals on the planet, and
+dominate planktonic communities in the coastal ocean. By nature of their
+abundance this group plays key ecological roles in aquatic food webs. In
+many systems, copepods are important consumers of primary productivity,
+acting as a crucial linkage between phytoplankton and higher trophic
+levels. Further, many commercial fish larvae depend on copepods as a
+critical food source during development. Climate change therefore has
+the potential to impact aquatic ecosystem functions as well as human
+fishery systems directly through changes in copepod populations.
+However, despite their abundance and ecological importance, there is
+limited data on environmental control of copepod thermal limits,
+including the effects of starvation. This impedes our ability to predict
+how copepod populations may be affected by co-occurring changes in
+temperature and food availability over both short (e.g. - seasonal
+changes) and long timescales (e.g. - anthropogenic climate change). In
+this study we tracked changes in critical thermal maxima (CTmax) in
+copepods exposed to extended starvation to test the hypothesis that food
+deprivation would reduce thermal limits. We observed a clear decline in
+thermal limits after three days of starvation. Our results suggest that
+natural variability in food concentrations in the coastal ocean may
+reduce copepod thermal limits thus increasing vulnerability to
+increasing temperatures, especially during marine heatwaves.
+
+# Methods
+
+The copepods used in this study were collected in July 2020 from Esker
+Point, Connecticut (lat, long) by surface tow with a 63-um mesh net and
+solid cod end. Mature *Acartia tonsa* females and males were isolated
+from the tow contents, and used to initiate a laboratory culture which
+was maintained in an environmental chamber at 18°C and a 12:12
+light:dark cycle, with constant aeration from a small aquarium pump.
+Copepods were fed *ad libitum* a mixture of three phytoplankton cultured
+under the same environmental conditions: a green flagellate,
+*Tetraselmis sp.*; the cryptomonad *Rhodomonas sp.*; and the small
+diatom *Thalassiosira weissflogii*. This diet is regularly used to
+maintain large, active laboratory cultures of *A. tonsa* (REF).
+
+We used five replicate experiments to test our hypothesis that
+starvation would reduce copepod thermal limits over time. Each
+experiment involved measuring a baseline thermal limits for the culture
+(as critical thermal maxima: CTmax), and then tracking CTmax over time
+in two groups of copepods, a fed control group and a starved treatment
+group. To initiate each experiment, 10 mature females were isolated from
+the laboratory culture and maintained for 24 hours in 200 mL of an *ad
+libitum* food solution (800 ug C / L of *Tetraselmis*). Preliminary work
+showed that short exposure to three different prey options (*Tetraselmis
+sp.*, *Rhodomonas sp.*, and *Oxyrrhis marina*, a heterotrophic
+dinoflagellate) did not affect copepod thermal limits (Supp. Fig. 1).
+After 24 hours, thermal limits were measured as Critical Thermal Maxima
+(CTmax; described in the following section), which served as a baseline
+initial value for each experiment. On the same day as the baseline CTmax
+measurements, an additional \~90 mature females were isolated and
+divided into six groups. The six groups were randomly assigned to either
+the starvation treatment or the fed control treatment. The starvation
+groups were maintained in 0.2-um filtered sea water. The control group
+was provided a food solution comprising 800 ug C / L of *Tetraselmis*,
+identical to the conditions used to assess baseline CTmax. Each group
+was held in a 100 mL cup with a plastic cylinder nested within. The
+bottom end of the cylinder was covered by a 150-um mesh screen. Similar
+set-ups are often used to prevent egg cannibalization during egg
+production assays, as eggs of *A. tonsa* sink through the mesh to the
+base of the cup; in our case, this prevented females in the starvation
+group from acquiring nutrition via egg cannibalism. All groups were
+transferred to fresh media (either filtered sea water or food solution)
+on a daily basis throughout the experiment by gently removing the meshed
+column and placing it into a new 100 mL cup.
+
+Thermal limits were measured each day for five days, starting 24 hours
+after the females were isolated using a custom setup. The apparatus used
+has three components: a reservoir, a water bath, and a temperature
+sensor (Supp. Fig. 2). We used a 5 gallon bucket covered with a neoprene
+sleeve as our reservoir. The reservoir was filled with \~20 L of water,
+which is then slowly warmed using a 300 watt aquarium water heater
+(BRAND). In this arrangement, the temperature ramping rate is determined
+by the interaction between the power output of the aquarium heater and
+the volume of water in the reservoir. The reservoir also contains two
+aquarium pumps (BRAND), one of which circulates water within the
+reservoir while the other pumps water from the reservoir into the water
+bath, which sits atop the reservoir. The water bath is a transparent
+plexiglass box that fits over the opening of the reservoir. Water is
+pumped up from the reservoir at a rapid rate, flooding the water bath. A
+recession cut into one of the edges of the box allows water to spill
+back into the reservoir. The water bath contains several test-tube
+holders that are used to secure the experimental vessels (50 mL
+flat-bottom glass vials) during the CTmax trials. Because the box is
+transparent, individuals are easily monitored through the side of the
+water bath throughout the trial, eliminating the necessity to remove
+experimental vessels from the water bath, potentially inducing
+temperature fluctuations. The final component of this apparatus is a
+small Arduino computer system that logs temperature with three
+independent sensors at 5 second intervals. These sensors are small
+enough to be placed inside the same experimental vessels used during the
+CTmax trials, providing a continuous record of the temperatures within
+the vessels. No horizontal gradients in temperature were detected within
+the water bath, and temperatures are averaged across the three sensors.
+
+Using this setup, we measured individual CTmax values for ten copepods
+per day, selected at random from the six cups. One replicate experiment
+(replicate 2) was ended after only \_\_ days when all individuals from
+the starvation treatment died. At the beginning of each CTmax trial, the
+reservoir was filled with 20 L of water and adjusted to 18°C. After the
+reservoir reached the proper temperature, experimental vessels
+containing 10 mL of 0.2 um filtered sea water were placed in the water
+bath, which was then flooded with water, bringing the experimental
+vessels to the correct temperature as well. Individual copepods were
+then placed into the vials, and let acclimate for 10 minutes at constant
+temperature. All copepods were checked during this time period for
+normal behavior. Individuals exhibiting abnormal behaviors were excluded
+from further analysis. After this resting phase, the water heater was
+turned on, initiating the temperature ramp. Simultaneously, the
+temperature logger began to record temperature and a stop watch began
+recording the time passed. Individuals were continuously monitored as
+water temperature increased. CTmax is generally defined as the
+temperature at which an individual ceases to respond to physical stimuli
+(REF), indicating the onset of “ecological death” (the inability to
+escape lethal temperatures, predators, etc.). In *A. tonsa* this is
+indicated by cessation of movement, a lack of response to gentle
+physical stimuli (e.g. - slow flushing of the water in the tube with a
+transfer pipette), and abnormal body configuration (specifically -
+antennules pressed against the sides of prosome and a distinct dorsal
+tilt of the urosome). The time at which an individual began to exhibit
+these characteristics was recorded and that individual’s experimental
+vessel removed from the water bath. After all individuals reached their
+CTmax, copepods were photographed using a camera attached to an inverted
+scope (or the equivalent), and body size estimated using a scale
+micrometer and the software ImageJ (REF). Individuals from replicate
+experiment 5 were not photographed due to a malfunction with the imaging
+software.
+
+The times recorded during the trials were converted to the CTmax values
+in degrees C using temperatures recorded on the temperature logging
+system. There is an “uncertainty window” for each measurement, however,
+that also has to be accounted for - as there are between 1-10 vials
+being monitored at any point in the trial, the time at which an
+individual was recorded as having stopped responding to stimulus
+corresponds with the latest time (and therefore highest temperature) it
+could have reached its CTmax. The period of time during which an
+individual could have reached its CTmax extends from this definite end
+point to the last time the individual was checked. As it generally takes
+around 5 seconds to check whether an individual has stopped responding,
+the duration of this uncertainty window was estimated for each
+individual as the number of vials remaining in the water bath multiplied
+by 5 seconds. This uncertainty window decreased in length as the trial
+went on, until, for the final individual, the window includes just the
+amount of time it took to check whether the individual had stopped
+responding. CTmax is estimated as the average temperatures recorded by
+all three temperature sensors throughout the uncertainty window. We used
+this time-based method instead of directly monitoring the temperatures
+to reduce any sub-conscious bias stemming from past knowledge or
+expectations about copepod thermal limits.
+
+## Statistical Analysis
+
+# Results
+
+The custom setup produced consistent ramping rates across assays (Supp.
+Fig. 3). Ramping rates did however vary within each assay, decreasing
+over time due to the imperfect insulation of the bucket reservoir.
+Ramping rates always between the target ramping rates of 0.1 - 0.3°C per
+minute, however, which have been used previously to measure CTmax for
+copepods (REF).
+
+A total of 254 CTmax measurements were made across the five replicate
+experiments (153 from the fed controls and 101 from the starved
+treatment). Average CTmax gradually decreased over the course of the
+five day starvation period (Figure 1). There was no difference between
+thermal limits of fed and starved individuals on days 1 or 2. Thermal
+limits were \~1°C lower by day 3 and continued to decrease by \~2°C per
+day after that. By day 5, starved individuals had thermal limits that
+were \~5°C lower than those of control individuals. There was, however,
+also a large increase in the variance of individual thermal limits in
+the starved treatment; several individuals maintaining thermal limits
+similar to those observed in the control individuals while others had
+thermal limits as low as 22°C. No changes were observed between the fed
+controls and the baseline CTmax values during any of the experiments
+(Supp. Fig. 4). There was no significant effect of size on CTmax during
+any of the experimental days (Supp. Fig. 5).
+
+<img src="../Output/Figures/afdesigner/fig-1-1.png" title="Estimation plots depicting the gradual reduction in thermal limits relative in the starvation group relative to the control group." alt="Estimation plots depicting the gradual reduction in thermal limits relative in the starvation group relative to the control group." width="300px" />
+
+# Discussion
+
+# Supplementary Material
+
+**Supp. Fig. 1** - Diet figure
+
+<img src="../Output/Figures/markdown/supp-fig-1-diet-comparison-1.png" width="300px" />
+
+**Supp. Fig. 2** - Schematic of the custom device used to measure
+copepod CTmax values.
+
+**Supp. Fig. 3** - Ramping rates during these trials (the increase in
+temperature per minute) decrease over time due to the imperfect
+insulation of the bucket reservoir. Ramping rates were always between
+the target ramping rates of 0.3 and 0.1 degrees C per minute. The plot
+below is a hexagonal heatmap of ramping rate throughout the CTmax
+trials. The plane is divided into regular hexagons, which are shaded
+according the frequency of the encompassed ramping rates.
+
+<img src="../Output/Figures/markdown/supp-fig-3-ramping-rates-1.png" width="300px" />
+
+**Supp. Fig. 4** - CTmax vs baseline
+
+<img src="../Output/Figures/markdown/supp-fig-4-replicate-effect-sizes-1.png" width="300px" />
+
+**Supp. Fig. 5** - Thermal limits (CTmax) plotted against individual
+body size for each day, separated by treatment. A linear regression is
+shown, along with the associated p-value for each day. At no point
+throughout the experimental duration (day 1 through 5) is thermal limit
+associated with length.
+
+<img src="../Output/Figures/markdown/supp-fig-5-ctmax-length-1.png" width="500px" />

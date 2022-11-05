@@ -23,7 +23,6 @@ biblio-style: unsrt
 output: 
   rticles::arxiv_article:
     keep_tex: false
-    keep_md: true
 ---
 
 # Introduction {.unnumbered}
