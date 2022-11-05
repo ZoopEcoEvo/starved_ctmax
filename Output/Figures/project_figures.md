@@ -1,0 +1,296 @@
+---
+title: Figures from Rueda Moreno & Sasaki (2023) - Starvation reduces thermal limits of the widespread copepod *Acartia tonsa*
+date: "2022-11-05"
+output: 
+  html_document:
+          keep_md: true
+          code_folding: hide
+          toc: true
+          toc_float: true
+---
+
+
+```r
+knitr::opts_chunk$set(
+  echo = T,
+  fig.align = "center",
+  fig.path = "markdown/",
+  message = FALSE,
+  warning = FALSE,
+  collapse = T,
+  dev = c("png", "pdf")
+)
+
+library(tidyverse)
+library(dabestr)
+library(ggbeeswarm)
+library(RColorBrewer)
+library(knitr)
+library(ggpubr)
+
+theme_matt = function(base_size){
+  ggpubr::theme_pubr(base_family="sans") %+replace% 
+    theme(
+      panel.background  = element_blank(),
+      plot.background = element_rect(fill="transparent", colour=NA), 
+      legend.background = element_rect(fill="transparent", colour=NA),
+      legend.key = element_rect(fill="transparent", colour=NA),
+      legend.text = element_text(size=base_size * 0.9),
+      legend.title = element_text(size = base_size * 0.9, 
+                                  face = "bold"),
+      axis.text = element_text(size = base_size),
+      axis.title = element_text(size = base_size * 1.2),
+      title = element_text(size = base_size * 1.55)
+    )
+}
+
+diet_cols = c("tet" = "darkolivegreen3",
+              "rhod" = "#BE4C2F",
+              "starvation" = "slategray2",
+              "oxy" = "rosybrown2")
+
+diet_data = full_data %>%  
+  filter(experiment == "one")
+
+starv_data = full_data %>% 
+  filter(experiment == "two") %>% 
+  mutate("cumul_day" = as.numeric(as.Date(run_date) - first(as.Date(run_date))),
+         "rep" = case_when(
+           cumul_day < 6 ~ 1,
+           cumul_day > 104 ~ 5, 
+           cumul_day > 60 ~ 4, 
+           cumul_day > 19 ~ 3,
+           cumul_day > 6 ~ 2)) %>% 
+  group_by(rep) %>% 
+  mutate("rep_day" = cumul_day - first(cumul_day))
+```
+
+
+```r
+starv_pairs_eff = starv_data %>% 
+  mutate(eff_id = paste(rep_day, diet, sep = "_")) %>% 
+  filter(rep_day != 0) %>% 
+  dabest(x = eff_id, y = ct_max,
+         idx = list(c("1_fed", "1_starvation"),
+                    c("2_fed","2_starvation"),
+                    c("3_fed","3_starvation"),
+                    c("4_fed","4_starvation"),
+                    c("5_fed","5_starvation"))) %>% 
+  mean_diff()
+
+plot(starv_pairs_eff, 
+     rawplot.markersize = 2,
+     color.column = diet,
+     rawplot.groupwidth = 0.3,
+     palette = c("olivedrab", "lightblue3"),
+     rawplot.ylabel = "CTmax")
+```
+
+<img src="markdown/fig-1-1.png" style="display: block; margin: auto;" />
+
+
+```r
+diet_eff = diet_data %>% 
+  mutate(diet_label = case_when(
+    diet == "tet" ~ "Tetraselmis", 
+    diet == "rhod" ~ "Rhodomonas",
+    diet == "oxy" ~ "Oxyrrhis",
+    T ~ "Starved"
+  )) %>% 
+  dabest(x = diet_label, y = ct_max,
+         idx = c("Starved",
+                 "Tetraselmis",
+                 "Rhodomonas", 
+                 "Oxyrrhis")) %>% 
+  mean_diff()
+
+plot(diet_eff, 
+     rawplot.markersize = 2,
+     color.column = diet,
+     rawplot.groupwidth = 0.3,
+     palette = c("olivedrab", "palevioletred3", "lightblue3", "pink2"),
+     rawplot.ylabel = "CTmax")
+```
+
+<img src="markdown/supp-fig-1-diet-comparison-1.png" style="display: block; margin: auto;" />
+
+
+
+```r
+ramp_record2 = ramp_record %>% 
+  group_by(run, minute_interval) %>% 
+  summarise(mean_ramp = mean(ramp_per_minute)) %>% 
+  drop_na(minute_interval, mean_ramp) 
+
+ggplot(ramp_record2, aes(x = minute_interval, y = mean_ramp)) + 
+  geom_hline(yintercept = 0.3) + 
+  geom_hline(yintercept = 0.1) + 
+  #geom_point() + 
+  geom_hex(bins = 30) + 
+  #scale_fill_continuous(lim=c(2,25), na.value=NA) + 
+  ylim(0,0.32) + 
+  labs(y = "Ramp Rate (deg. C / min.)",
+       x = "Time into run (minute)") + 
+  theme_matt(base_size = 16) + 
+  theme(legend.position = c(0.3, 0.1), 
+        legend.direction = "horizontal")
+```
+
+<img src="markdown/supp-fig-3-ramping-rates-1.png" style="display: block; margin: auto;" />
+
+
+```r
+# starv_control_eff = starv_data %>% 
+#   mutate(eff_id = paste(rep_day, diet, sep = "_")) %>%
+#   mutate(rep_day = as.numeric(rep_day)) %>% 
+#   dabest(eff_id, ct_max, 
+#          idx = c("0_fed", "1_fed", "2_fed", "3_fed", "4_fed", "5_fed"),
+#          paired = FALSE) %>% 
+#   mean_diff() 
+# 
+# param_list = list()
+# param_list[["colour"]] = "black"
+# param_list[["width"]] = 0.2
+# 
+# a = plot(starv_control_eff, 
+#          rawplot.ylim = c(22, 38),
+#          effsize.ylim = c(-12,1),
+#          rawplot.markersize = 3,
+#          rawplot.groupwidth = 0.25,
+#          rawplot.ylabel = "CTmax",
+#          swarmplot.params = param_list)
+# 
+# 
+# starv_starv_eff = starv_data %>% 
+#   mutate(eff_id = paste(rep_day, diet, sep = "_")) %>%
+#   mutate(rep_day = as.numeric(rep_day)) %>% 
+#   dabest(eff_id, ct_max, 
+#          idx = c("0_fed", "1_starvation", "2_starvation", "3_starvation", "4_starvation", "5_starvation"),
+#          paired = FALSE) %>% 
+#   mean_diff() 
+# 
+# b = plot(starv_starv_eff, 
+#          rawplot.ylim = c(22, 38),
+#          effsize.ylim = c(-12,1),
+#          rawplot.markersize = 3,
+#          rawplot.groupwidth = 0.25,
+#          rawplot.ylabel = "",
+#          effsize.ylabel = "",
+#          swarmplot.params = param_list)
+# 
+# a_title = ggplot() + 
+#   ggtitle("Control") +
+#   theme_minimal(base_size = 15)
+# 
+# b_title = ggplot() + 
+#   ggtitle("Starvation") +
+#   theme_minimal(base_size = 15)
+# 
+# ggarrange(a_title, b_title, a, b, common.legend = T, nrow = 2, ncol = 2, heights = c(0.08,1))
+```
+
+
+```r
+rep_list = unique(starv_data$rep)
+
+starv_effects = data.frame()
+for(i in rep_list){
+  
+  rep_data = starv_data %>% 
+    filter(rep == i) %>% 
+    mutate(eff_id = paste(rep_day, diet, sep = "_")) %>%
+    mutate(rep_day = as.numeric(rep_day)) %>% 
+    select(diet, tube, ct_max, rep, rep_day, eff_id)
+  
+  control_eff = rep_data %>% 
+    dabest(eff_id, ct_max, 
+           idx = unique(c("0_fed", rep_data$eff_id[str_detect(rep_data$eff_id, pattern = "fed")])),
+           paired = FALSE) %>% 
+    mean_diff() 
+  
+  starv_eff = rep_data %>% 
+    mutate(eff_id = paste(rep_day, diet, sep = "_")) %>%
+    mutate(rep_day = as.numeric(rep_day)) %>% 
+    dabest(eff_id, ct_max, 
+           idx = unique(c("0_fed", rep_data$eff_id[str_detect(rep_data$eff_id, pattern = "starvation")])),
+           paired = FALSE) %>% 
+    mean_diff() 
+  
+  control_data = data.frame(
+    "rep" = i,
+    "diet" = "fed",
+    "effect" = control_eff$result$difference,
+    "ci_low" = control_eff$result$bca_ci_low,
+    "ci_high" = control_eff$result$bca_ci_high)%>% 
+    mutate("day" = parse_number(control_eff$result$test_group))
+  
+  temp_data = data.frame(
+    "rep" = i,
+    "diet" = "starvation",
+    "effect" = starv_eff$result$difference,
+    "ci_low" = starv_eff$result$bca_ci_low,
+    "ci_high" = starv_eff$result$bca_ci_high) %>% 
+    mutate("day" = parse_number(starv_eff$result$test_group))
+  starv_effects = bind_rows(starv_effects, control_data, temp_data)
+}
+```
+
+
+```r
+ggplot(starv_effects, aes(x = day, y = effect, colour = diet, group = diet)) + 
+  #facet_grid(rep~diet) + 
+  geom_hline(yintercept = 0, colour = "grey70") + 
+  geom_pointrange(aes(ymin = ci_low, ymax = ci_high),
+                  size = 1, 
+                  position = position_jitterdodge(dodge.width = 0.3, jitter.width = 0.2)) + 
+  scale_colour_manual(values = c("olivedrab", "lightblue3")) + 
+  labs(x = "Day", 
+       y = "Difference from initial CTmax \n(degrees C)") + 
+  theme_matt(base_size = 16) + 
+  theme(legend.position = c(0.25, 0.2))
+```
+
+<img src="markdown/supp-fig-4-replicate-effect-sizes-1.png" style="display: block; margin: auto;" />
+
+
+```r
+length_tests = starv_data %>% 
+  group_by(diet, rep_day) %>%  
+  summarise("p_value" = car::Anova(lm(ct_max ~ length))$`Pr(>F)`[1])
+
+starv_data %>% 
+  ggplot(aes(x = length, y = ct_max)) + 
+  facet_grid(diet ~ rep_day, scales = "free_y") + 
+  geom_smooth(method = "lm", se = T, colour = "black") + 
+  geom_point(size = 1.5) + 
+  geom_text(data = length_tests, aes(x = 0.75, y = max(starv_data$ct_max) + 1.5),
+            hjust= 0,
+            label = paste("p-value:", round(length_tests$p_value, digits = 3)), 
+            size = 4) + 
+  labs(x = "Length (mm)",
+       y = "CTmax (degrees C)") + 
+  scale_x_continuous(breaks = c(0.8, 0.9)) + 
+  theme_bw(base_size = 16) + 
+  theme(panel.grid = element_blank())
+```
+
+<img src="markdown/supp-fig-5-ctmax-length-1.png" style="display: block; margin: auto;" />
+
+```r
+
+model = lme4::lmer(data = starv_data, ct_max ~ rep_day * diet * length + (1|rep))
+car::Anova(model)
+## Analysis of Deviance Table (Type II Wald chisquare tests)
+## 
+## Response: ct_max
+##                       Chisq Df Pr(>Chisq)    
+## rep_day             16.1618  1  5.816e-05 ***
+## diet                 7.6910  1    0.00555 ** 
+## length               0.5672  1    0.45136    
+## rep_day:diet        52.1044  1  5.263e-13 ***
+## rep_day:length       1.5059  1    0.21977    
+## diet:length          0.0041  1    0.94866    
+## rep_day:diet:length  3.8018  1    0.05120 .  
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+```
