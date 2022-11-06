@@ -1,7 +1,7 @@
 library(rmarkdown)
 
 process_all_data = F
-make_figures = T
+make_figures = F
 
 #Process the temperature and time data to estimate CTmax values
 source(file = "Scripts/01_data_processing.R")
@@ -13,7 +13,7 @@ ramp_record = read.csv(file = "Output/Data/ramp_record.csv")
 
 #Make Figures
 if(make_figures == T){
-  render(input = "Output/Figures/project_figures.Rmd", #Input the path to your .Rmd file here
+  render(input = "Output/Reports/project_figures.Rmd", #Input the path to your .Rmd file here
          output_file = "project_figures.html") #Name your file here; as it is, this line will create reports named with the date
 }
 
@@ -28,6 +28,9 @@ starv_data = full_data %>%
            cumul_day > 6 ~ 2)) %>% 
   group_by(rep) %>% 
   mutate("rep_day" = cumul_day - first(cumul_day))
+
+cell_data = readxl::read_excel(path = "Data/grazing_test.xlsx") %>% 
+  drop_na(cells)
 
 #Render the manuscript draft
 render(input = "Manuscript/Sasaki_and_Moreno_2023.Rmd", #Input the path to your .Rmd file here

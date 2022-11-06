@@ -1,6 +1,6 @@
 ---
 title: Figures from Rueda Moreno & Sasaki (2023) - Starvation reduces thermal limits of the widespread copepod *Acartia tonsa*
-date: "2022-11-05"
+date: "2022-11-06"
 output: 
   html_document:
           keep_md: true
@@ -8,20 +8,20 @@ output:
 
 
 
-<img src="markdown/fig-1-1.png" style="display: block; margin: auto;" />
+<img src="../Figures/markdown/fig-1-1.png" style="display: block; margin: auto;" />
 
-<img src="markdown/supp-fig-1-diet-comparison-1.png" style="display: block; margin: auto;" />
-
-
-<img src="markdown/supp-fig-3-ramping-rates-1.png" style="display: block; margin: auto;" />
+<img src="../Figures/markdown/supp-fig-1-diet-comparison-1.png" style="display: block; margin: auto;" />
 
 
+<img src="../Figures/markdown/supp-fig-3-ramping-rates-1.png" style="display: block; margin: auto;" />
 
 
 
-<img src="markdown/supp-fig-4-replicate-effect-sizes-1.png" style="display: block; margin: auto;" />
 
-<img src="markdown/supp-fig-5-ctmax-length-1.png" style="display: block; margin: auto;" />
+
+<img src="../Figures/markdown/supp-fig-4-replicate-effect-sizes-1.png" style="display: block; margin: auto;" />
+
+<img src="../Figures/markdown/supp-fig-5-ctmax-length-1.png" style="display: block; margin: auto;" />
 
 ```
 ## Analysis of Deviance Table (Type II Wald chisquare tests)

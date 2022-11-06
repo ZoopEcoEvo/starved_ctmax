@@ -10,7 +10,7 @@ output:
 knitr::opts_chunk$set(
   echo = F,
   fig.align = "center",
-  fig.path = "markdown/",
+  fig.path = "../Figures/markdown/",
   message = FALSE,
   warning = FALSE,
   collapse = T,
@@ -60,6 +60,29 @@ starv_data = full_data %>%
   group_by(rep) %>% 
   mutate("rep_day" = cumul_day - first(cumul_day))
 ```
+
+```{r}
+cell_data %>% 
+  group_by(tube) %>%
+  mutate(time = minute + (second / 60),
+         cells_ml = cells * (1000/25)) %>% 
+  arrange(time) %>% 
+  mutate(time_change = time - first(time),
+         cell_change = cells_ml - first(cells_ml)) %>% 
+  filter(time_change > 0) %>% 
+  mutate(r = (log(cells_ml / (cells_ml - cell_change)) / time_change)) %>% 
+  select(treatment, group, tube, sample, time, cells_ml, time_change, cell_change, r) %>% 
+  pivot_wider(id_cols = c(group,sample),
+              names_from = treatment,
+              values_from = r) %>% 
+  mutate(starved_corr = starved - control,
+         fed_corr = fed - control) %>% 
+  select(group, sample, starved_corr, fed_corr) %>%  
+  pivot_longer(cols = c(starved_corr, fed_corr),
+               names_to = "treatment",
+               values_to = "corrected_r")
+```
+
 
 ```{r fig-1, fig.width=5, fig.height=5}
 starv_pairs_eff = starv_data %>% 
