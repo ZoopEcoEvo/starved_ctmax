@@ -17,6 +17,7 @@ if(make_figures == T){
          output_file = "project_figures.html") #Name your file here; as it is, this line will create reports named with the date
 }
 
+# Loads in just the starvation data object
 starv_data = full_data %>% 
   filter(experiment == "two") %>% 
   mutate("cumul_day" = as.numeric(as.Date(run_date) - first(as.Date(run_date))),
@@ -29,6 +30,7 @@ starv_data = full_data %>%
   group_by(rep) %>% 
   mutate("rep_day" = cumul_day - first(cumul_day))
 
+# Cell concentration data to calculate grazing rates
 cell_data = readxl::read_excel(path = "Data/grazing_test.xlsx") %>% 
   drop_na(cells)
 
