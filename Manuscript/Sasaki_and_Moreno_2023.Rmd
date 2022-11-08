@@ -26,9 +26,9 @@ output:
 ---
 
 # Introduction {.unnumbered}
-The acquisition of nutrition is a fundamental challenge for organisms. While environmental conditions are often considered to impact the ability to find, capture, and ingest food, nutrition also affects how environmental conditions impact organisms. In a changing climate, these feedbacks between feeding and sensitivity to environmental conditions are crucial to consider. [Summary of climate change, temperature, and food availability in the ocean; Are copepods currently or predicted to be exposed to food limitation?].
+The acquisition of nutrition is a fundamental challenge for organisms. Environmental conditions have well-known effects on the ability to find, capture, and ingest food via the direct influence on organismal performance. Nutrition may also affect how environmental conditions impact organisms, however, by modifying the underlying sensitivity to changes in the experienced environment. In a changing climate, these feedbacks between feeding and sensitivity to environmental conditions are crucial to consider. [Summary of climate change, temperature, and food availability in the ocean; Are copepods currently or predicted to be exposed to food limitation?].
 
-[Summary of starvation effects on thermal limits literature]. It is vital to understand how copepod thermal limits respond to changes in food availability in order to better model population dynamics in a changing climate. 
+[Summary of starvation effects on thermal limits literature; introduction to metabolic meltdown]. It is vital to understand how copepod thermal limits respond to changes in food availability in order to better model population dynamics in a changing climate.
 
 Copepods are the some of the most abundant animals on the planet, and dominate planktonic communities in the coastal ocean. By nature of their abundance this group plays key ecological roles in aquatic food webs. In many systems, copepods are important consumers of primary productivity, acting as a crucial linkage between phytoplankton and higher trophic levels. Further, many commercial fish larvae depend on copepods as a critical food source during development. Climate change therefore has the potential to impact aquatic ecosystem functions as well as human fishery systems directly through changes in copepod populations. However, despite their abundance and ecological importance, there is limited data on environmental control of copepod thermal limits, including the effects of starvation. This impedes our ability to predict how copepod populations may be affected by co-occurring changes in temperature and food availability over both short (e.g. - seasonal changes) and long timescales (e.g. - anthropogenic climate change). In this study we tracked changes in critical thermal maxima (CTmax) in copepods exposed to extended starvation to test the hypothesis that food deprivation would reduce thermal limits. We observed a clear decline in thermal limits after three days of starvation. Our results suggest that natural variability in food concentrations in the coastal ocean may reduce copepod thermal limits thus increasing vulnerability to increasing temperatures, especially during marine heatwaves. 
 
@@ -55,6 +55,9 @@ knitr::include_graphics("../Output/Figures/afdesigner/fig-1-1.png")
 \newpage    
 
 # Discussion {.unnumbered}    
+[Results summary]
+[Implications for population dynamics in a changing climate; Phytoplankton production expected to increase(?) in most regions, potentially limiting starvation effects on thermal limits; However, over shorter timescales (seasonal), the most intense effects of heatwaves and extreme events are expected to be concentrated during time periods when 1) organisms are closest to their thermal limits (summer) and 2) when phytoplankton concentrations/biomass are at their seasonal minimum.]
+
 
 \newpage    
 
