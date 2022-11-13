@@ -55,7 +55,7 @@ knitr::include_graphics("../Output/Figures/afdesigner/fig-1-1.png")
 \newpage    
 
 # Discussion {.unnumbered}    
-[Results summary]
+[Summary of results]
 [Implications for population dynamics in a changing climate; Phytoplankton production expected to increase(?) in most regions, potentially limiting starvation effects on thermal limits; However, over shorter timescales (seasonal), the most intense effects of heatwaves and extreme events are expected to be concentrated during time periods when 1) organisms are closest to their thermal limits (summer) and 2) when phytoplankton concentrations/biomass are at their seasonal minimum.]
 
 
