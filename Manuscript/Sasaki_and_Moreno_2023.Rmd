@@ -68,24 +68,28 @@ knitr::include_graphics("../Output/Figures/afdesigner/fig-1-1.png")
 ```{r supp-fig-1, echo = F, out.width = "300px"}
 knitr::include_graphics("../Output/Figures/markdown/supp-fig-1-diet-comparison-1.png")
 ```
+\newpage    
 
 **Supp. Fig. 2** - Schematic of the custom device used to measure copepod CTmax values.     
 
 ```{r supp-fig-2, echo = F, out.width = "300px"}
 
 ```
+\newpage    
 
 **Supp. Fig. 3** - Ramping rates during these trials (the increase in temperature per minute) decrease over time due to the imperfect insulation of the bucket reservoir. Ramping rates were always between the target ramping rates of 0.3 and 0.1 degrees C per minute. The plot below is a hexagonal heatmap of ramping rate throughout the CTmax trials. The plane is divided into regular hexagons, which are shaded according the frequency of the encompassed ramping rates.    
 
 ```{r supp-fig-3, echo = F, out.width = "300px"}
 knitr::include_graphics("../Output/Figures/markdown/supp-fig-3-ramping-rates-1.png")
 ```
+\newpage    
 
 **Supp. Fig. 4** - CTmax vs baseline    
 
 ```{r supp-fig-4, echo = F, out.width = "300px"}
 knitr::include_graphics("../Output/Figures/markdown/supp-fig-4-replicate-effect-sizes-1.png")
 ```
+\newpage    
 
 **Supp. Fig. 5** - Thermal limits (CTmax) plotted against individual body size for each day, separated by treatment. A linear regression is shown, along with the associated p-value for each day. At no point throughout the experimental duration (day 1 through 5) is thermal limit associated with length.      
 
