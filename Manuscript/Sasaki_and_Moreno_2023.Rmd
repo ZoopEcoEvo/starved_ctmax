@@ -2,14 +2,14 @@
 title: Starvation reduces thermal limits of the widespread copepod *Acartia tonsa*
 authors:
   - name: Gaia A. Rueda Moreno
-    department: Department of __
+    department: Department of Biology
     affiliation: New York University
     location: New York City, NY, USA
   - name: Matthew C. Sasaki
     department: Department of Marine Sciences
-    affiliation: University of Vermont
+    affiliation: University of Connecticut
     location: Groton, CT, USA
-    email: matthew.sasaki@uconn.edu
+    email: matthew.sasaki@uvm.edu
 abstract: |
   Organismal thermal limits affect a wide range of biogeographical and ecological processes. Copepods are some of the most abundant animals on the planet, and play key roles in aquatic habitats. Despite their abundance and ecological importance, there is limited data on the factors that affect copepod thermal limits, impeding our ability to predict how aquatic ecosystems will be affected by anthropogenic climate change. In a warming ocean, one factor that may have particularly important effects on thermal limits is the availability of food. A recently proposed feedback loop known as “metabolic meltdown” suggests that starvation and exposure to high temperatures interact to drastically reduce organismal thermal limits, increasing vulnerability to warming. To investigate one component of this feedback loop, we examined how starvation affects thermal limits (critical thermal maxima: CTmax) of Acartia tonsa, a widespread estuarine copepod. We found that there was no effect of short duration exposure to starvation (up to two days). However, after three days, there was a significant decrease in the CTmax of starved copepods relative to the fed controls. Our results provide empirical evidence that extended periods of starvation reduce thermal limits, potentially initiating “metabolic meltdown” in this key species of coastal copepod. This suggests that changes in food availability may increase vulnerability of copepods to increasing temperatures, amplifying the effects of climate change on coastal systems.
 keywords:
