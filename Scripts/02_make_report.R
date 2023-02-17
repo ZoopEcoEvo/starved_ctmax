@@ -3,6 +3,7 @@ library(tidyverse)
 
 process_all_data = F
 make_figures = F
+knit_manuscript = T 
 
 #Process the temperature and time data to estimate CTmax values
 source(file = "Scripts/01_data_processing.R")
@@ -35,8 +36,11 @@ starv_data = full_data %>%
 cell_data = readxl::read_excel(path = "Data/grazing_test.xlsx") %>% 
   drop_na(cells)
 
-#Render the manuscript draft
-render(input = "Manuscript/Sasaki_and_Moreno_2023.Rmd", #Input the path to your .Rmd file here
-       output_file = paste("draft_", Sys.Date(), ".pdf", sep = ""), #Name your file here; as it is, this line will create reports named with the date
-       output_dir = "Output/Drafts/") #Set the path to the desired output directory here
-       #output_format = c("pdf_document","github_document"))
+if(knit_manuscript == T){
+  #Render the manuscript draft
+  render(input = "Manuscript/Moreno_and_Sasaki_2023.Rmd", #Input the path to your .Rmd file here
+         output_file = paste("dev_draft_", Sys.Date(), sep = ""), #Name your file here; as it is, this line will create reports named with the date
+         output_dir = "Output/Drafts/",
+         output_format = "all",
+         clean = T)
+}
