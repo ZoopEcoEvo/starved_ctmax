@@ -278,7 +278,4 @@ starv_data %>%
   theme_bw(base_size = 16) + 
   theme(panel.grid = element_blank())
 
-model = lme4::lmer(data = starv_data, ct_max ~ rep_day * diet * length + (1|rep))
-car::Anova(model)
-
 ```
