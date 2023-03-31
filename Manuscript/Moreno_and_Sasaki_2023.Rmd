@@ -85,7 +85,7 @@ model = lme4::lmer(data = starv_data, ct_max ~ rep_day * diet + (1|rep))
 ```
 
 ```{r, figure2, echo = F, out.width = "300px", fig.cap = "Estimation plots depicting the gradual reduction in thermal limits relative in the starvation group relative to the control group."}
-knitr::include_graphics("../Output/Figures/afdesigner/fig-1-1.png")
+knitr::include_graphics("../Output/Figures/markdown/fig-1-1.png")
 ```
 
 \newpage

@@ -84,7 +84,7 @@ cell_data %>%
 ```
 
 
-```{r fig-1, fig.width=5, fig.height=5}
+```{r fig-1, fig.width=12, fig.height=8}
 starv_pairs_eff = starv_data %>% 
   mutate(eff_id = paste(rep_day, diet, sep = "_")) %>% 
   filter(rep_day != 0) %>% 
@@ -101,6 +101,8 @@ plot(starv_pairs_eff,
      color.column = diet,
      rawplot.groupwidth = 0.3,
      palette = c("olivedrab", "lightblue3"),
+   tick.fontsize = 12,
+axes.title.fontsize = 20,
      rawplot.ylabel = "CTmax")
 ```
 
