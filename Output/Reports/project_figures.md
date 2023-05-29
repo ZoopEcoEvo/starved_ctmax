@@ -1,6 +1,6 @@
 ---
 title: Figures from Rueda Moreno & Sasaki (2023) - Starvation reduces thermal limits of the widespread copepod *Acartia tonsa*
-date: "2023-03-31"
+date: "2023-05-29"
 output: 
   html_document:
           keep_md: true
@@ -22,17 +22,17 @@ output:
 ```
 
 
-<img src="../Figures/markdown/fig-1-1.png" style="display: block; margin: auto;" />
+<img src="../Figures/markdown/fig-3-effect-sizes-1.png" style="display: block; margin: auto;" />
 
-<img src="../Figures/markdown/supp-fig-1-diet-comparison-1.png" style="display: block; margin: auto;" />
-
-
-<img src="../Figures/markdown/supp-fig-3-ramping-rates-1.png" style="display: block; margin: auto;" />
+<img src="../Figures/markdown/fig-1-diet-comparison-1.png" style="display: block; margin: auto;" />
 
 
+<img src="../Figures/markdown/fig-2-ramping-rates-1.png" style="display: block; margin: auto;" />
 
 
 
-<img src="../Figures/markdown/supp-fig-4-replicate-effect-sizes-1.png" style="display: block; margin: auto;" />
 
-<img src="../Figures/markdown/supp-fig-5-ctmax-length-1.png" style="display: block; margin: auto;" />
+
+<img src="../Figures/markdown/supp-fig-replicate-effect-sizes-1.png" style="display: block; margin: auto;" />
+
+<img src="../Figures/markdown/fig-4-ctmax-length-1.png" style="display: block; margin: auto;" />
