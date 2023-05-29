@@ -63,7 +63,7 @@ The times recorded during the trials were converted to CT~max~ values in degrees
 
 We used five replicate experiments to test our hypothesis that starvation reduces copepod thermal limits over time. Each experiment involved measuring a baseline CT~max~ for the culture, and then making daily CT~max~ measurements for two groups of copepods, a fed control group and a starved treatment group. To initiate each experiment, 10 mature females were isolated from the laboratory culture and maintained for 24 hours in 200 mL of an *ad libitum* food solution (800 ug C / L of *Tetraselmis*). Preliminary work showed that short exposure to three different prey options (*Tetraselmis sp.*, *Rhodomonas sp.*, and *Oxyrrhis marina*, a heterotrophic dinoflagellate) did not affect copepod thermal limits (Figure 1). After 24 hours, CT~max~ was measured as described above. This provided an initial baseline value for each experiment.
 
-```{r fig-1, echo = F, out.width = "300px", fig.cap = "Estimation plots showing the effect of different diet treatments on thermal limits relative to a starved control group. Measurements were taken after 24 hours, and show that none of the diets examined modified thermal limits"}
+```{r fig-1, echo = F, out.width = "250px", fig.cap = "Estimation plots showing the effect of different diet treatments on thermal limits relative to a starved control group. Measurements were taken after 24 hours, and show that none of the diets examined modified thermal limits"}
 knitr::include_graphics("../Output/Figures/markdown/fig-1-diet-comparison-1.png")
 ```
 
@@ -79,7 +79,7 @@ All statistical analyses were performed with R (Version 4.1.3; R Core Team 2022)
 
 A total of `r dim(starv_data)[1]` CT~max~ measurements were made across the five replicate experiments (`r paste(table(starv_data$diet)[1], "from the fed controls and", paste(table(starv_data$diet)[2]), "from the starved treatment", sep = " ")`). Note that the difference between the number of fed and starved individuals reflects the five sets of initial baseline CTmax values measured (all experienced 'fed' conditions). The custom setup produced consistent ramping rates across assays (Figure 2). Ramping rates did however decrease over time in a consistent way within each assay due to the imperfect insulation of the bucket reservoir. Nonetheless, ramping rates were always between the target ramping rates of 0.1 - 0.3°C per minute, which have been used previously to measure CT~max~ for copepods [@sasaki2021; @harada2019; @jiang2009].
 
-```{r fig-2, echo = F, out.width = "300px", fig.cap = "A heatmap of the observed ramping rates (the increase in temperature per minute) during the CTmax trials. The plane is divided into regular hexagons, which are shaded according the frequency of the encompassed ramping rates. Ramping rates were always between the target ramping rates of 0.3 and 0.1°C per minute."}
+```{r fig-2, echo = F, out.width = "250px", fig.cap = "A heatmap of the observed ramping rates (the increase in temperature per minute) during the CTmax trials. The plane is divided into regular hexagons, which are shaded according the frequency of the encompassed ramping rates. Ramping rates were always between the target ramping rates of 0.3 and 0.1°C per minute."}
 knitr::include_graphics("../Output/Figures/markdown/fig-2-ramping-rates-1.png")
 ```
 
@@ -89,7 +89,7 @@ Thermal limits of the fed control individuals were consistent with the baseline 
 knitr::include_graphics("../Output/Figures/afdesigner/fig-3.png")
 ```
 
-```{r fig-4, echo = F, out.width = "500px", fig.cap = "Thermal limits (CTmax) plotted against individual body size for each day, separated by treatment. A linear regression is shown, along with the associated p-value for each day. At no point throughout the experimental duration (day 1 through 5) is thermal limit associated with length."}
+```{r fig-4, echo = F, out.width = "400px", fig.cap = "Thermal limits (CTmax) plotted against individual body size for each day, separated by treatment. A linear regression is shown, along with the associated p-value for each day. At no point throughout the experimental duration (day 1 through 5) is thermal limit associated with length."}
 knitr::include_graphics("../Output/Figures/markdown/fig-4-ctmax-length-1.png")
 ```
 

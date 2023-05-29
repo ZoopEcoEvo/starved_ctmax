@@ -2,7 +2,7 @@ library(rmarkdown)
 library(tidyverse)
 
 process_all_data = F
-make_figures = T
+make_figures = F
 knit_manuscript = T
 
 #Process the temperature and time data to estimate CTmax values
@@ -40,7 +40,7 @@ starv_data = full_data %>%
 if(knit_manuscript == T){
   #Render the manuscript draft
   render(input = "Manuscript/Moreno_and_Sasaki_2023.Rmd", #Input the path to your .Rmd file here
-         output_file = paste("dev_draft_", Sys.Date(), sep = ""), #Name your file here; as it is, this line will create reports named with the date
+         output_file = "Moreno_and_Sasaki_2023", #Name your file here; as it is, this line will create reports named with the date
          output_dir = "Output/Drafts/",
          output_format = "all",
          clean = T)
