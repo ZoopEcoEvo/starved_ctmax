@@ -17,26 +17,69 @@ knitr::opts_chunk$set(
   dev = c("png", "pdf")
 )
 
-library(tidyverse)
 library(dabestr)
 library(ggbeeswarm)
 library(RColorBrewer)
 library(knitr)
 library(ggpubr)
 
-theme_matt = function(base_size){
+
+theme_matt = function(base_size = 18,
+                      dark_text = "grey20"){
+  mid_text <-  monochromeR::generate_palette(dark_text, "go_lighter", n_colours = 5)[2]
+  light_text <-  monochromeR::generate_palette(dark_text, "go_lighter", n_colours = 5)[3]
+  
   ggpubr::theme_pubr(base_family="sans") %+replace% 
     theme(
-      panel.background  = element_blank(),
+      panel.background  = element_rect(fill="transparent", colour=NA), 
       plot.background = element_rect(fill="transparent", colour=NA), 
       legend.background = element_rect(fill="transparent", colour=NA),
       legend.key = element_rect(fill="transparent", colour=NA),
+      text = element_text(colour = mid_text, lineheight = 1.1),
+      title = element_text(size = base_size * 1.5,
+                           colour = dark_text),
+      axis.text = element_text(size = base_size,
+                               colour = mid_text),
+      axis.title.x = element_text(size = base_size * 1.2,
+                                  margin = unit(c(3, 0, 0, 0), "mm")),
+      axis.title.y = element_text(size = base_size * 1.2,
+                                  margin = unit(c(0, 5, 0, 0), "mm"), 
+                                  angle = 90),
       legend.text = element_text(size=base_size * 0.9),
       legend.title = element_text(size = base_size * 0.9, 
                                   face = "bold"),
-      axis.text = element_text(size = base_size),
-      axis.title = element_text(size = base_size * 1.2),
-      title = element_text(size = base_size * 1.55)
+      plot.margin = margin(0.25, 0.25, 0.25, 0.25,"cm")
+    )
+}
+
+theme_matt_facets = function(base_size = 18,
+                             dark_text = "grey20"){
+  mid_text <-  monochromeR::generate_palette(dark_text, "go_lighter", n_colours = 5)[2]
+  light_text <-  monochromeR::generate_palette(dark_text, "go_lighter", n_colours = 5)[3]
+  
+  theme_bw(base_family="sans") %+replace% 
+    theme(
+      panel.grid = element_blank(),
+      panel.background  = element_rect(fill="transparent", colour=NA), 
+      plot.background = element_rect(fill="transparent", colour=NA), 
+      legend.background = element_rect(fill="transparent", colour=NA),
+      legend.key = element_rect(fill="transparent", colour=NA),
+      text = element_text(colour = mid_text, lineheight = 1.1),
+      strip.text.x = element_text(size = base_size),
+      strip.text.y = element_text(size = base_size, angle = 270),
+      title = element_text(size = base_size * 1.5,
+                           colour = dark_text),
+      axis.text = element_text(size = base_size,
+                               colour = mid_text),
+      axis.title.x = element_text(size = base_size * 1.2,
+                                  margin = unit(c(3, 0, 0, 0), "mm")),
+      axis.title.y = element_text(size = base_size * 1.2,
+                                  margin = unit(c(0, 5, 0, 0), "mm"), 
+                                  angle = 90),
+      legend.text = element_text(size=base_size * 0.9),
+      legend.title = element_text(size = base_size * 0.9, 
+                                  face = "bold"),
+      plot.margin = margin(0.25, 0.25, 0.25, 0.25,"cm")
     )
 }
 
@@ -84,7 +127,7 @@ cell_data %>%
 ```
 
 
-```{r fig-1, fig.width=5, fig.height=5}
+```{r fig-3-effect-sizes, fig.width=12, fig.height=8}
 starv_pairs_eff = starv_data %>% 
   mutate(eff_id = paste(rep_day, diet, sep = "_")) %>% 
   filter(rep_day != 0) %>% 
@@ -101,10 +144,12 @@ plot(starv_pairs_eff,
      color.column = diet,
      rawplot.groupwidth = 0.3,
      palette = c("olivedrab", "lightblue3"),
-     rawplot.ylabel = "CTmax")
+   tick.fontsize = 12,
+axes.title.fontsize = 20,
+     rawplot.ylabel = "CTmax (°C)")
 ```
 
-```{r supp-fig-1-diet-comparison, fig.height=6, fig.width=6}
+```{r fig-1-diet-comparison, fig.height=6, fig.width=6}
 diet_eff = diet_data %>% 
   mutate(diet_label = case_when(
     diet == "tet" ~ "Tetraselmis", 
@@ -113,8 +158,7 @@ diet_eff = diet_data %>%
     T ~ "Starved"
   )) %>% 
   dabest(x = diet_label, y = ct_max,
-         idx = c("Starved",
-                 "Tetraselmis",
+         idx = c("Tetraselmis",
                  "Rhodomonas", 
                  "Oxyrrhis")) %>% 
   mean_diff()
@@ -124,11 +168,11 @@ plot(diet_eff,
      color.column = diet,
      rawplot.groupwidth = 0.3,
      palette = c("olivedrab", "palevioletred3", "lightblue3", "pink2"),
-     rawplot.ylabel = "CTmax")
+     rawplot.ylabel = "CTmax (°C)")
 ```
 
 
-```{r supp-fig-3-ramping-rates, fig.height=6, fig.width=6}
+```{r fig-2-ramping-rates, fig.height=6, fig.width=6}
 ramp_record2 = ramp_record %>% 
   group_by(run, minute_interval) %>% 
   summarise(mean_ramp = mean(ramp_per_minute)) %>% 
@@ -244,7 +288,7 @@ for(i in rep_list){
 
 ```
 
-```{r supp-fig-4-replicate-effect-sizes, fig.width=5, fig.height=5}
+```{r supp-fig-replicate-effect-sizes, fig.width=5, fig.height=5}
 ggplot(starv_effects, aes(x = day, y = effect, colour = diet, group = diet)) + 
   #facet_grid(rep~diet) + 
   geom_hline(yintercept = 0, colour = "grey70") + 
@@ -253,32 +297,29 @@ ggplot(starv_effects, aes(x = day, y = effect, colour = diet, group = diet)) +
                   position = position_jitterdodge(dodge.width = 0.3, jitter.width = 0.2)) + 
   scale_colour_manual(values = c("olivedrab", "lightblue3")) + 
   labs(x = "Day", 
-       y = "Difference from initial CTmax \n(degrees C)") + 
+       y = "Difference from initial CTmax \n(°C)") + 
   theme_matt(base_size = 16) + 
   theme(legend.position = c(0.25, 0.2))
 ```
 
-```{r supp-fig-5-ctmax-length, fig.width=10, fig.height=5}
+```{r fig-4-ctmax-length, fig.width=10, fig.height=5}
 length_tests = starv_data %>% 
   group_by(diet, rep_day) %>%  
   summarise("p_value" = car::Anova(lm(ct_max ~ length))$`Pr(>F)`[1])
 
 starv_data %>% 
   ggplot(aes(x = length, y = ct_max)) + 
-  facet_grid(diet ~ rep_day, scales = "free_y") + 
-  geom_smooth(method = "lm", se = T, colour = "black") + 
+  facet_grid(diet ~ rep_day) + 
+  geom_smooth(method = "lm", se = T, colour = "black", linetype = "dashed") + 
   geom_point(size = 1.5) + 
-  geom_text(data = length_tests, aes(x = 0.75, y = max(starv_data$ct_max) + 1.5),
+  geom_text(data = length_tests, aes(x = 0.77, y = max(starv_data$ct_max) + 2),
             hjust= 0,
             label = paste("p-value:", round(length_tests$p_value, digits = 3)), 
             size = 4) + 
   labs(x = "Length (mm)",
-       y = "CTmax (degrees C)") + 
+       y = "CTmax (°C)") + 
+  coord_cartesian(ylim = c(20,41)) + 
   scale_x_continuous(breaks = c(0.8, 0.9)) + 
-  theme_bw(base_size = 16) + 
-  theme(panel.grid = element_blank())
-
-model = lme4::lmer(data = starv_data, ct_max ~ rep_day * diet * length + (1|rep))
-car::Anova(model)
+  theme_matt_facets(base_size = 16)
 
 ```
