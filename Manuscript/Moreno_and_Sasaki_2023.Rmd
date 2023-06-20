@@ -43,6 +43,7 @@ if(knitr::is_latex_output()){
 
 ```
 
+
 # Introduction
 
 The acquisition of nutrition is a fundamental challenge for organisms. Environmental conditions have well-known effects on the ability to find, capture, and ingest food via a direct influence on organismal performance. Temperature, for example, has strong effects on metabolic rates in ectothermic organisms, linking both performance and energetic requirements to the thermal environment [@brown2004; @johnston2022]. As energetic requirements tend to increase with warming, we might expect to see increasing consumption pressure on autotrophs and lower trophic levels as ocean warming proceeds, with consequences for community structure and the distribution of biomass [@archibald2022]. Nutrition may also affect how environmental conditions impact organisms, however, by modifying the underlying sensitivity to changes in the experienced environment [@huey2019; @litchman2023]. As anthropogenic climate change is driving long-term ocean warming and increased frequency of disturbances like marine heat waves [@hobday2016; @oliver2018; @smale2019; @harvey2022; @johnston2022; @li2022], these feedbacks between feeding and sensitivity to environmental conditions are crucial to consider.
