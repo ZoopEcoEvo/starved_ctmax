@@ -8,6 +8,8 @@ G. Rueda Moreno<sup>1</sup>, M.C. Sasaki<sup>2,3</sup>
 
 This project examined how starvation affects the upper thermal limits of the widespread and ecologically important copepod *Acartia tonsa*. Copepods were collected from Eastern Long Island Sound during the summer of 2020. 
 
+Data archived: [![DOI](https://zenodo.org/badge/563165816.svg)](https://doi.org/10.5281/zenodo.8057948)        
+
 ## Directory Structure 
 The root directory contains the README and Licensing files, along with a .Rproj file and four sub-directories: Data, Manuscript, Output, and Scripts.  
 
