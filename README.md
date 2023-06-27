@@ -20,7 +20,7 @@ The root directory contains the README and Licensing files, along with a .Rproj 
 -   `Output/` contains the various products of the project (processed data, figures, knit reports, and a PDF copy of the manuscript. Note, the `Reports/` directory contains the R Markdown file used to generate the figures used in the manuscript.  
 
 -   `Scripts/` contains two R scripts. 
-    -   `01_Data_analysis.R` is used to process the raw data. The two primary components are calculating the thermal performance curve parameters from the field observations and estimating the effect size comparisons for the simulated heatwave experiments. 
+    -   `01_Data_analysis.R` is used to process the raw data. The primary component is the conversion from timepoint measurements of when each individual reached its CTmax to a measurement in °C using the continuous temperature record from the experiment. 
     -   `02_make_report.R` is use to control the project workflow. Through this script, you can choose to run the process the data, make the figures, or knit the manuscript. This script should be used rather than running isolated fragments individually. 
 
 
