@@ -2,8 +2,8 @@ library(rmarkdown)
 library(tidyverse)
 
 process_all_data = F
-make_figures = F
-knit_manuscript = T
+make_figures = T
+knit_manuscript = F
 
 #Process the temperature and time data to estimate CTmax values
 source(file = "Scripts/01_data_processing.R")
@@ -36,6 +36,13 @@ starv_data = full_data %>%
            cumul_day > 6 ~ 2)) %>% 
   group_by(rep) %>% 
   mutate("rep_day" = cumul_day - first(cumul_day))
+
+missing_inds = starv_data %>% 
+  group_by(run) %>% 
+  summarise("num" = n(),
+            "missing" = 10 - num)
+
+prop_miss = sum(missing_inds$missing) / dim(starv_data)[1]  
 
 if(knit_manuscript == T){
   #Render the manuscript draft

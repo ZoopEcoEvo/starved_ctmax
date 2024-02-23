@@ -144,8 +144,8 @@ plot(starv_pairs_eff,
      color.column = diet,
      rawplot.groupwidth = 0.3,
      palette = c("olivedrab", "lightblue3"),
-   tick.fontsize = 12,
-axes.title.fontsize = 20,
+     tick.fontsize = 12,
+     axes.title.fontsize = 20,
      rawplot.ylabel = "CTmax (°C)")
 ```
 
@@ -181,8 +181,14 @@ ramp_record2 = ramp_record %>%
 ggplot(ramp_record2, aes(x = minute_interval, y = mean_ramp)) + 
   geom_hline(yintercept = 0.3) + 
   geom_hline(yintercept = 0.1) + 
-  #geom_point() + 
-  geom_hex(bins = 30) + 
+  geom_point() + 
+  #geom_hex(bins = 30) + 
+  stat_smooth(aes(group = run),
+              geom="line",
+              linewidth = 0.5, 
+              colour = "grey80", 
+              se = F, 
+              alpha = 0.7) + 
   #scale_fill_continuous(lim=c(2,25), na.value=NA) + 
   ylim(0,0.32) + 
   labs(y = "Ramp Rate (deg. C / min.)",
@@ -305,17 +311,22 @@ ggplot(starv_effects, aes(x = day, y = effect, colour = diet, group = diet)) +
 ```{r fig-4-ctmax-length, fig.width=10, fig.height=5}
 length_tests = starv_data %>% 
   group_by(diet, rep_day) %>%  
-  summarise("p_value" = car::Anova(lm(ct_max ~ length))$`Pr(>F)`[1])
+  summarise("p_value" = car::Anova(lm(ct_max ~ length))$`Pr(>F)`[1],
+            "variance" = var(ct_max))
 
 starv_data %>% 
   ggplot(aes(x = length, y = ct_max)) + 
   facet_grid(diet ~ rep_day) + 
-  geom_smooth(method = "lm", se = T, colour = "black", linetype = "dashed") + 
+  geom_smooth(method = "lm", se = F, colour = "grey", linetype = "longdash") + 
   geom_point(size = 1.5) + 
-  geom_text(data = length_tests, aes(x = 0.77, y = max(starv_data$ct_max) + 2),
+  geom_text(data = length_tests, aes(x = 0.75, y = max(starv_data$ct_max) + 3),
             hjust= 0,
             label = paste("p-value:", round(length_tests$p_value, digits = 3)), 
-            size = 4) + 
+            size = 3) + 
+    geom_text(data = length_tests, aes(x = 0.75, y = max(starv_data$ct_max) + 1.5),
+            hjust= 0,
+            label = paste("variance:", round(length_tests$variance, digits = 3)), 
+            size = 3) + 
   labs(x = "Length (mm)",
        y = "CTmax (°C)") + 
   coord_cartesian(ylim = c(20,41)) + 
